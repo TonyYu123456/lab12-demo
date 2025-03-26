@@ -49,36 +49,13 @@ opts_chunk$set(
 
 <br>
 
-## First step
-
-First I will source any necessary code, e.g. `process_starbucks_data.R`:
-
-```{r load-data}
+```{r load-data, echo=FALSE}
 source("process_starbucks_data.R")
 ```
 
-<br>
+## Showcasing plots {.tabset}
 
-## Second step
-
-Then I will add some code to create the **plotly** figures
-
-```{r plot1, class.source="code-r-small", echo=FALSE}
-
-p1<-ggplot(sb_locs_state,  aes(x=population, y=n_stores, color=state)) +
-    geom_point(alpha = 0.8) +
-    theme_bw()
-
-ggplotly(p1)
-```
-
-<br>
-
-## Third step {.tabset}
-
-Create tabs to display each figure
-
-### Histogram of Calories
+### Figure 1
 
 ```{r p1, echo=FALSE}
 p2<-ggplot(sb_nutr, aes(x=Calories, fill=Category )) + 
@@ -88,7 +65,7 @@ p2<-ggplot(sb_nutr, aes(x=Calories, fill=Category )) +
 ggplotly(p2)
 ```
 
-### Boxplot of Nutrition
+### Figure 2
 
 ```{r p2, echo=FALSE}
 sb_nutr_long <- sb_nutr |>
@@ -114,7 +91,3 @@ plot_ly(data = sb_nutr_long,
 
 <br>
 
-Done!
-
-<br>
-<br>
